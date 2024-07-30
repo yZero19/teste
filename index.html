@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Vflows</title>
+    <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+    <script src="/portal/resources/js/jquery/jquery.js"></script>
+    <script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script src="/style-guide/js/fluig-style-guide.min.js"></script>
+    <link rel="stylesheet" href="assents/style.css">
+
+</head>
+<body>
+    <div class="fluig-style-guide">
+        <h1>Dados do Fornecedor</h1>
+        <form id="supplierForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Social" class="form-label">Razão Social</label>
+                    <input type="text" class="form-control" id="Social" name="Social" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj" class="form-label">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0001-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome-fantasia" class="form-label">Nome Fantasia</label>
+                    <input type="text" class="form-control" id="nome-fantasia" name="nome-fantasia" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Inscricao" class="form-label">Inscrição Estadual</label>
+                    <input type="text" class="form-control" id="Inscricao" name="Inscricao">
+                </div>
+                <div class="form-group">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" required>
+                </div>
+                <div class="form-group">
+                    <label for="Inscricao-municipal" class="form-label">Inscrição Municipal</label>
+                    <input type="text" class="form-control" id="Inscricao-municipal" name="Inscricao-municipal">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco-numero" class="form-label">Número</label>
+                    <input type="text" class="form-control" id="endereco-numero" name="endereco-numero">
+                </div>
+                <div class="form-group">
+                    <label for="complemento" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" id="complemento" name="complemento">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="Bairro" name="Bairro">
+                </div>
+                <div class="form-group">
+                    <label for="municipio" class="form-label">Município</label>
+                    <input type="text" class="form-control" id="municipio" name="municipio">
+                </div>
+                <div class="form-group">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" name="estado">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nome-contato" class="form-label">Nome da Pessoa de Contato</label>
+                    <input type="text" class="form-control" id="nome-contato" name="nome-contato" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+
+            <h2>Produtos</h2>
+
+            <div class="fluig-style-guide">
+                <div id="formContainer"></div>
+                <div id="productError" class="error-message" style="display:none;">É necessário incluir pelo menos um produto.</div>
+                <button id="generateFormButton" class="btn btn-primary">Gerar Formulário</button>
+                
+            </div>
+            
+            <h2>Arquivos</h2>
+            <div class="fluig-style-guide">
+                <button id="fileSelectButton" class="btn btn-primary">Selecionar Arquivo</button>
+                <input type="file" id="fileInput" style="display:none;" multiple>
+                <div id="fileList" class="file-list"></div>
+                <div id="fileError" class="error-message" style="display:none;">É necessário incluir pelo menos um documento.</div>
+            </div>
+
+            <button type="submit" id="saveSupplierButton" class="btn btn-success">Salvar Fornecedor</button>
+        </form>
+    </div>
+
+    <div id="loadingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:20px;">
+        <h2>Enviando dados...</h2>
+    </div>
+
+    <script src="assents/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
