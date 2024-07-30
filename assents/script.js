@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Função para buscar endereço pelo CEP
     function fetchAddressByCep(cep) {
         const url = `https://viacep.com.br/ws/${cep}/json/`;
         return fetch(url)
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
+    // Evento blur para campo de CEP
     const cepInput = document.getElementById('cep');
     if (cepInput) {
         cepInput.addEventListener('blur', function () {
@@ -28,6 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Adicionar máscara aos campos de CNPJ e CEP
+    $(document).ready(function(){
+        $('#cep').mask('00000-000');
+        $('#cnpj').mask('00.000.000/0000-00');
+    });
+
+    // Botão para adicionar formulário de produto
     document.getElementById('generateFormButton').addEventListener('click', function () {
         const formContainer = document.getElementById('formContainer');
         const formHTML = `
@@ -73,10 +82,12 @@ document.addEventListener('DOMContentLoaded', function () {
         newForm.innerHTML = formHTML;
         formContainer.appendChild(newForm);
 
+        // Botão para remover formulário de produto
         newForm.querySelector('.removeFormButton').addEventListener('click', function () {
             formContainer.removeChild(newForm);
         });
 
+        // Atualizar valor total do produto
         newForm.querySelector('input[name="valor-unitario"]').addEventListener('input', updateTotal);
         newForm.querySelector('input[name="quantidade"]').addEventListener('input', updateTotal);
     });
@@ -89,10 +100,12 @@ document.addEventListener('DOMContentLoaded', function () {
         form.querySelector('input[name="valor-total"]').value = valorTotal.toFixed(2);
     }
 
+    // Botão para selecionar arquivos
     document.getElementById('fileSelectButton').addEventListener('click', function () {
         document.getElementById('fileInput').click();
     });
 
+    // Atualizar lista de arquivos
     document.getElementById('fileInput').addEventListener('change', function () {
         const fileInput = this;
         const fileList = document.getElementById('fileList');
@@ -150,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Submissão do formulário
     document.getElementById('supplierForm').addEventListener('submit', function (event) {
         event.preventDefault(); 
 
